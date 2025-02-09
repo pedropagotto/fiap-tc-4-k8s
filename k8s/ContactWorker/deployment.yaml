@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-worker
+spec:
+  selector:
+    matchLabels:
+      app: contact-worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: contact-worker
+    spec:
+      containers:
+        - name: contact-worker
+          image: sergiofdf/contact-worker:latest
+          imagePullPolicy: Always
+          ports:
+          - name: http
+            containerPort: 80
+          env:
+          - name: ConnectionStrings__techchallenge01
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: connectionstring
+          - name: elasticsearch__apiKey
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: elasticapikey
+          - name: elasticsearch__cloudId
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: elasticcloudid
+          - name: RabbitMQConnection__Host
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqhost
+          - name: RabbitMQConnection__Username
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqusername
+          - name: RabbitMQConnection__Password
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqpassword 
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"

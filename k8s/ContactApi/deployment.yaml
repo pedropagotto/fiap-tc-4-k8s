@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-api
+spec:
+  selector:
+    matchLabels:
+      app: contact-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: contact-api
+    spec:
+      containers:
+        - name: contact-api
+          image: sergiofdf/contact-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+          - name: http
+            containerPort: 8082
+          - name: https
+            containerPort: 8083
+          env:
+          - name: ConnectionStrings__techchallenge01
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: connectionstring
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact-api
+spec:
+  type: ClusterIP
+  selector:
+    app: contact-api
+  ports:
+  - name: http
+    port: 8082
+    targetPort: 8082
+  - name: https
+    port: 8083
+    targetPort: 8083

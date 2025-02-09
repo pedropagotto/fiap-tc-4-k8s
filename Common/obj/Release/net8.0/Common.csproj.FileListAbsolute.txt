@@ -1,0 +1,12 @@
+/Users/sergiofdf/Projects/tc-fiap-03/Common/bin/Release/net8.0/Common.deps.json
+/Users/sergiofdf/Projects/tc-fiap-03/Common/bin/Release/net8.0/Common.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Common/bin/Release/net8.0/Common.pdb
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.AssemblyInfoInputs.cache
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.AssemblyInfo.cs
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.csproj.CoreCompileInputs.cache
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.sourcelink.json
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/refint/Common.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/Common.pdb
+/Users/sergiofdf/Projects/tc-fiap-03/Common/obj/Release/net8.0/ref/Common.dll
