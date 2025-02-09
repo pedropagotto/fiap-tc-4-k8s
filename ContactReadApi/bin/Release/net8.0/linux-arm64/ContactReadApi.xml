@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ContactReadApi</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.ContactsController.ListAllContacts(System.String)">
+            <summary>
+            Lista os contatos cadastrados no sistema. Permite a opção de filtro de contatos pela localização através do DDD.
+            </summary>
+            <param name="DDD" example="11">Opção de filtro por região pelo DDD.</param>
+        </member>
+        <member name="M:API.Controllers.ContactsController.GetContact(System.Int32)">
+            <summary>
+            Busca um contato pelo id informado.
+            </summary>
+            <param name="id" example="1">Id do contato buscado.</param>
+        </member>
+        <member name="M:API.Extensions.AuthenticationConfigExtension.JwtConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Common.Config.TechChallengeFiapConfiguration)">
+            <summary>
+                Metodo para configuração de autenticação JWT
+            </summary>
+        </member>
+    </members>
+</doc>

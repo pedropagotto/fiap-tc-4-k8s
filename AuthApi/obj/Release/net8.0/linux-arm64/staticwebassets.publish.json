@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "yA7PKUpyCq8YllTuvF2VkayKttE8iMQeL3vDGuEUguU=",
+  "Source": "AuthApi",
+  "BasePath": "_content/AuthApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

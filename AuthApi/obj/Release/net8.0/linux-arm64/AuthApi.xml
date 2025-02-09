@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthApi</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.AuthenticationController.Login(Application.ViewModels.Authentication.LoginRequestModel)">
+            <summary>
+            Serviço para login de usuário registrado no sistema. 
+            </summary>
+        </member>
+        <member name="M:API.Controllers.AuthenticationController.Register(Application.Models.Authentication.RegisterModel)">
+            <summary>
+            Serviço para registro de novo usuário no sistema.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.AuthenticationConfigExtension.JwtConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Common.Config.TechChallengeFiapConfiguration)">
+            <summary>
+                Metodo para configuração de autenticação JWT
+            </summary>
+        </member>
+    </members>
+</doc>

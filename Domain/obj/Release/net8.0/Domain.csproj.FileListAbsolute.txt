@@ -1,0 +1,12 @@
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/bin/Release/net8.0/Domain.deps.json
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/bin/Release/net8.0/Domain.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/bin/Release/net8.0/Domain.pdb
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.AssemblyInfo.cs
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.sourcelink.json
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/refint/Domain.dll
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/Domain.pdb
+/Users/sergiofdf/Projects/tc-fiap-03/Domain/obj/Release/net8.0/ref/Domain.dll

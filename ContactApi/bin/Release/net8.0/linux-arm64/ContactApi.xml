@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ContactApi</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.ContactsController.CreateContact(Application.ViewModels.Contact.ContactRequestModel)">
+            <summary>
+            Cadastra um novo contato no sistema.
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ContactsController.PutContact(System.Int32,Application.ViewModels.Contact.ContactRequestModel)">
+            <summary>
+            Atualiza um cadastro no sistema.
+            </summary>
+            <param name="id" example="1">Id do contato a ser atualizado.</param>
+        </member>
+        <member name="M:API.Controllers.ContactsController.DeleteContact(System.Int32)">
+            <summary>
+            Remove um contato do sistema.
+            </summary>
+            <param name="id" example="1">Id do contato a ser removido.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ContactApi.Extensions.AuthenticationConfigExtension.JwtConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Common.Config.TechChallengeFiapConfiguration)">
+            <summary>
+                Metodo para configuração de autenticação JWT
+            </summary>
+        </member>
+    </members>
+</doc>
