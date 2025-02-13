@@ -56,4 +56,5 @@ spec:
     app: prometheus
   ports:
     - port: 9090
-  type: ClusterIP
+      nodePort: 31112
+  type: NodePort

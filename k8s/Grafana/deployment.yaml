@@ -48,8 +48,8 @@ spec:
   ports:
     - name: http
       port: 3000
-      targetPort: 3000
+      nodePort: 31111
   selector:
     app: grafana
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
