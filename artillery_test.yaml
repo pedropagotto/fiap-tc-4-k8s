@@ -1,0 +1,43 @@
+config:
+  # This is a test server run by team Artillery
+  # It's designed to be highly scalable
+  # target: http://localhost:5268/api
+  target: http://localhost
+  phases:
+    - duration: 5
+      arrivalRate: 1
+      rampTo: 5
+      name: Warm up phase
+    - duration: 20
+      arrivalRate: 15
+      rampTo: 20
+      name: Ramp up load
+    - duration: 10
+      arrivalRate: 20
+      rampTo: 5
+      name: Slow down
+scenarios:
+  - flow:
+      - loop:
+          # - post:
+          #     url: '/Contacts'
+          #     json:
+          #       name: "Jose Vieira"
+          #       ddd: "11"
+          #       phone: "98155-4567"
+          #       email: "jose.vieira@example.com"
+          # - delete:
+          #     url: '/Contacts/1'
+          - get:
+              url: '/read/api/Contacts'
+              headers:
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZ2VyaW9zb3V6YXhAaG90bWFpbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJmdWxsTmFtZSI6IlJvZ2VyaW8gZGEgU2lsdmEgU291emEiLCJ1c2VySWQiOiIxIiwibmJmIjoxNzM5NDA3NzUxLCJleHAiOjE3Mzk0OTQxNTEsImlhdCI6MTczOTQwNzc1MX0.pXhS9NY5BD4RxliEE8iHXrPi4A7ZPtg0_kbPcQOF5ZU'
+          - get:
+              url: '/Contacts?DDD=11'
+              headers:
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZ2VyaW9zb3V6YXhAaG90bWFpbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJmdWxsTmFtZSI6IlJvZ2VyaW8gZGEgU2lsdmEgU291emEiLCJ1c2VySWQiOiIxIiwibmJmIjoxNzM5NDA3NzUxLCJleHAiOjE3Mzk0OTQxNTEsImlhdCI6MTczOTQwNzc1MX0.pXhS9NY5BD4RxliEE8iHXrPi4A7ZPtg0_kbPcQOF5ZU'
+          - get:
+              url: '/Contacts/99'
+              headers:
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZ2VyaW9zb3V6YXhAaG90bWFpbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJmdWxsTmFtZSI6IlJvZ2VyaW8gZGEgU2lsdmEgU291emEiLCJ1c2VySWQiOiIxIiwibmJmIjoxNzM5NDA3NzUxLCJleHAiOjE3Mzk0OTQxNTEsImlhdCI6MTczOTQwNzc1MX0.pXhS9NY5BD4RxliEE8iHXrPi4A7ZPtg0_kbPcQOF5ZU'
+        count: 10
