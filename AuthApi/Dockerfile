@@ -8,6 +8,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["./AuthApi.csproj", "./AuthApi/"]
+COPY ["../Application/Application.csproj", "./AuthApi/Application/"]
+COPY ["../Common/Common.csproj", "./Common/Common/"]
 RUN dotnet restore "./AuthApi/AuthApi.csproj"
 COPY . /src
 WORKDIR "/src/AuthApi"
