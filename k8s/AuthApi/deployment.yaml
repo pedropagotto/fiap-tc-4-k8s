@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: auth-api
-          image: sergiofdf/auth-api:latest
-          imagePullPolicy: IfNotPresent
+          image: ppagotto/tc-auth-api:latest
+          imagePullPolicy: Always
           ports:
           - name: http
             containerPort: 8080

@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: contact-api
-          image: sergiofdf/contact-api:latest
-          imagePullPolicy: IfNotPresent
+          image: ppagotto/tc-contact-api:latest
+          imagePullPolicy: Always
           ports:
           - name: http
             containerPort: 8082

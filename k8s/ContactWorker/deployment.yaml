@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: contact-worker
-          image: sergiofdf/contact-worker:latest
+          image: ppagotto/tc-contact-worker:latest
           imagePullPolicy: Always
           ports:
           - name: http

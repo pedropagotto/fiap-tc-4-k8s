@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: read-api
-          image: sergiofdf/contact-read-api:latest
-          imagePullPolicy: IfNotPresent
+          image: ppagotto/tc-contact-read-api:latest
+          imagePullPolicy: Always
           ports:
           - name: http
             containerPort: 8084
