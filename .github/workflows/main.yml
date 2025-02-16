@@ -1,0 +1,78 @@
+name: .NET
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install required workloads
+        run: dotnet workload install aspire
+
+      - name: Restore dependencies
+        run: |
+          cd ./Aspire
+          dotnet restore TC-03.sln
+
+      - name: Build
+        run: |
+          cd ./Aspire
+          dotnet build TC-03.sln --configuration Release --no-restore
+
+      - name: Test
+        run: |
+          cd ./Aspire
+          dotnet test TC-03.sln
+
+  docker_images:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker AuthApi image
+        run: |
+          cd AuthApi/
+          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest .
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
+          cd ..
+      
+      - name: Build and push Docker ContactApi image
+        run: |
+            cd ContactApi/
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
+            cd ..
+
+      - name: Build and push Docker ContactRead image
+        run: |
+            cd ContactRead/
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest
+            cd ..
+      
+      - name: Build and push Docker ContactWorker image
+        run: |
+            cd ContactRead/
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest
+            cd ..
+   
