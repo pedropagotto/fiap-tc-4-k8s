@@ -62,11 +62,11 @@ jobs:
 
       - name: Build and push Docker ContactReadApi image
         run: |
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest ContactReadApi/Dockerfile .
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest -f ContactReadApi/Dockerfile .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest
       
       - name: Build and push Docker ContactWorker image
         run: |
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest ContactWorker/Dockerfile .
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest -f ContactWorker/Dockerfile .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest
    
