@@ -9,7 +9,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["./AuthApi.csproj", "./AuthApi/"]
 RUN dotnet restore "./AuthApi/AuthApi.csproj"
-COPY . .
+COPY . /src
 WORKDIR "/src/AuthApi"
 RUN dotnet build "AuthApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
