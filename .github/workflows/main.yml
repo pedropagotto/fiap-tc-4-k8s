@@ -50,15 +50,15 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker AuthApi image
-        run: |
-          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest -f AuthApi/Dockerfile .
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
+      # - name: Build and push Docker AuthApi image
+      #   run: |
+      #     docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest -f AuthApi/Dockerfile .
+      #     docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
       
-      - name: Build and push Docker ContactApi image
-        run: |
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest -f ContactApi/Dockerfile .
-            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
+      # - name: Build and push Docker ContactApi image
+      #   run: |
+      #       docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest -f ContactApi/Dockerfile .
+      #       docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
 
       - name: Build and push Docker ContactReadApi image
         run: |
