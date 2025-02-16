@@ -18,7 +18,7 @@ spec:
           imagePullPolicy: Always
           ports:
           - name: http
-            containerPort: 8084
+            containerPort: 8080
           - name: https
             containerPort: 8085
           env:
@@ -45,8 +45,8 @@ spec:
     app: read-api
   ports:
   - name: http
-    port: 8084
-    targetPort: 8084
+    port: 8080
+    targetPort: 8080
   - name: https
     port: 8085
     targetPort: 8085

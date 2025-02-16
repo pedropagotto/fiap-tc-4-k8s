@@ -23,11 +23,11 @@ spec:
               service: 
                 name: contact-api
                 port: 
-                  number: 8082
+                  number: 8080
           - path: /read(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service: 
                 name: read-api
                 port: 
-                  number: 8084
+                  number: 8080
