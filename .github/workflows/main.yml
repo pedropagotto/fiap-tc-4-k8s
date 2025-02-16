@@ -52,29 +52,21 @@ jobs:
 
       - name: Build and push Docker AuthApi image
         run: |
-          cd AuthApi/
-          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest .
+          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest -f AuthApi/Dockerfile .
           docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
-          cd ..
       
       - name: Build and push Docker ContactApi image
         run: |
-            cd ContactApi/
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest .
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest -f ContactApi/Dockerfile .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
-            cd ..
 
       - name: Build and push Docker ContactRead image
         run: |
-            cd ContactRead/
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest .
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest ContactRead/Dockerfile .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest
-            cd ..
       
       - name: Build and push Docker ContactWorker image
         run: |
-            cd ContactRead/
-            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest .
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest ContactRead/Dockerfile .
             docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-worker:latest
-            cd ..
    
