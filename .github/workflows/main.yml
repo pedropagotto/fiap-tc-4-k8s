@@ -44,12 +44,47 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      # - name: Install jq
-      #   run: sudo apt-get update && sudo apt-get install -y jq
+      - name: Install jq
+        run: sudo apt-get install -y jq
 
-      # - name: Modify appsettings.json
-      #   run: |
-      #     jq '.ConnectionStrings.techchallenge01 = "${{ secrets.TECHCHALLENGE_CONNECTION_STRING }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+      - name: Modify AuthApi appsettings.json
+        run: |
+          cd ./AuthApi
+          jq '.ConnectionStrings.techchallenge01 = "${{ secrets.CONNECTION_STRING }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          cat appsettings.json
+          cd ..
+      
+      - name: Modify ContactReadApi appsettings.json
+        run: |
+          cd ./ContactReadApi
+          jq '.ConnectionStrings.techchallenge01 = "${{ secrets.CONNECTION_STRING }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          cat appsettings.json
+          cd ..
+      
+      - name: Modify ContactApi appsettings.json
+        run: |
+          cd ./ContactApi
+          jq '.ConnectionStrings.techchallenge01 = "${{ secrets.CONNECTION_STRING }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          
+          jq '.RabbitMQConnection.Host = "${{ secrets.HOST }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.RabbitMQConnection.Username = "${{ secrets.USERNAME }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.RabbitMQConnection.Password = "${{ secrets.PASSWORD }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          cat appsettings.json
+          cd ..
+
+      - name: Modify ContactWorker appsettings.json
+        run: |
+          cd ./ContactWorker
+          jq '.ConnectionStrings.techchallenge01 = "${{ secrets.CONNECTION_STRING }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          
+          jq '.RabbitMQConnection.Host = "${{ secrets.HOST }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.RabbitMQConnection.Username = "${{ secrets.USERNAME }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.RabbitMQConnection.Password = "${{ secrets.PASSWORD }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+
+          jq '.elasticsearch.cloudId = "${{ secrets.CLOUDID }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          jq '.elasticsearch.apiKey = "${{ secrets.APIKEY }}"' appsettings.json > tmp.json && mv tmp.json appsettings.json
+          cat appsettings.json
+          cd ..
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -57,20 +92,20 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Build and push Docker AuthApi image
-      #   run: |
-      #     docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest -f AuthApi/Dockerfile .
-      #     docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
+      - name: Build and push Docker AuthApi image
+        run: |
+          docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest -f AuthApi/Dockerfile .
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-auth-api:latest
       
-      # - name: Build and push Docker ContactApi image
-      #   run: |
-      #       docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest -f ContactApi/Dockerfile .
-      #       docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
+      - name: Build and push Docker ContactApi image
+        run: |
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest -f ContactApi/Dockerfile .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-api:latest
 
-      # - name: Build and push Docker ContactReadApi image
-      #   run: |
-      #       docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest -f ContactReadApi/Dockerfile .
-      #       docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest
+      - name: Build and push Docker ContactReadApi image
+        run: |
+            docker build -t ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest -f ContactReadApi/Dockerfile .
+            docker push ${{ vars.DOCKERHUB_USERNAME }}/tc-contact-read-api:latest
       
       - name: Build and push Docker ContactWorker image
         run: |
