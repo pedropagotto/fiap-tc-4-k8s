@@ -13,7 +13,7 @@ COPY ["../Common/Common.csproj", "./Common/"]
 COPY ["../Domain/Domain.csproj", "./Domain/"]
 COPY ["../Infra/Infra.csproj", "./Infra/"]
 RUN dotnet restore "./ContactApi/ContactApi.csproj"
-COPY . .
+COPY . /src
 WORKDIR "/src/ContactApi"
 RUN dotnet build "ContactApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
