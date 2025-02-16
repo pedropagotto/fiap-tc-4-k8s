@@ -27,6 +27,21 @@ spec:
               secretKeyRef:
                 name: database-secret-config
                 key: connectionstring
+          - name: RabbitMQConnection__Host
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqhost
+          - name: RabbitMQConnection__Username
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqusername
+          - name: RabbitMQConnection__Password
+            valueFrom:
+              secretKeyRef:
+                name: database-secret-config
+                key: rabbitmqpassword 
           resources:
             limits:
               memory: "512Mi"
